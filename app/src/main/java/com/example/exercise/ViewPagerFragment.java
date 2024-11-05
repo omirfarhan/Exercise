@@ -21,7 +21,7 @@ public class ViewPagerFragment extends Fragment {
 
     ViewPager2 viewPager2;
 
-    List<LoadData>load;
+    List<LoadData>load=new ArrayList<>();
 
 
 
@@ -36,15 +36,17 @@ public class ViewPagerFragment extends Fragment {
 
            Uri imageuri=Uri.parse(getArguments().getString("imageuri"));
            String text=getArguments().getString("text");
-           load.add(new LoadData(imageuri,text));
+           load.add(new LoadData(imageuri, text));
 
 
            Log.i("TAG","IMAGE"+imageuri);
        }
-
-
        Adapter adapter=new Adapter(getActivity(),load);
        viewPager2.setAdapter(adapter);
+
+
+
+
 
 
 

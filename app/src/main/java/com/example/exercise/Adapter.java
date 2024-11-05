@@ -67,12 +67,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Myholder> {
 
 
 
-                FragmentManager fragmentManager=((MainActivity)context).getSupportFragmentManager();
+                FragmentManager fragmentManager;
+                if (context instanceof MainActivity2){
+                    fragmentManager=((MainActivity2) context).getSupportFragmentManager();
+                }else {
+                    fragmentManager=((MainActivity) context).getSupportFragmentManager();
+                }
                 FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
 
                 Bundle bundle=new Bundle();
                 bundle.putString("imageuri",loadData.get(position).getImageview().toString());
-                bundle.putString("text",loadData.get(position).getTextview().toString());
+
 
 
                 ViewPagerFragment viewPagerFragment=new ViewPagerFragment();
